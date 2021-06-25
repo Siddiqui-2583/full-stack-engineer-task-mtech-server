@@ -72,3 +72,15 @@ export const placeOrder = (req, res) => {
     }
   );
 };
+
+export const getAllOrders = (req, res) => {
+  pool.query("Select * From orders", function (err, result, fields) {
+    if (err) {
+      console.log("error running query", err);
+      res.status(err.message);
+    } else {
+      console.log(result["rows"]);
+      res.status(200).json(result["rows"]);
+    }
+  });
+};
