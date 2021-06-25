@@ -1,13 +1,15 @@
-import mongoose from 'mongoose'
+const ProductSchema = {
+  "id":"",
+  "title": "",
+  "unitPrice": ""
+};
 
-const ProductSchema = mongoose.Schema({
-  title: String,
-  unitPrice: {
-    type: Number,
-    default: 0,
-  }
-});
+const buildProductSchema = (id,req) => {
+  const { title, unitPrice }= req;
+  ProductSchema.id = id;
+  ProductSchema.title = title;
+  ProductSchema.unitPrice = unitPrice;
+  return ProductSchema;
+}
 
-const product = mongoose.model('product', bookSchema)
-
-export default product
+export default buildProductSchema;
