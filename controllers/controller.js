@@ -1,5 +1,4 @@
 import buildProductSchema from "../models/product.js";
-import buildOrderSchema from "../models/order.js";
 import pool from "../config/postgresql_connection.js";
 
 export const insertProduct = (req, res) => {
